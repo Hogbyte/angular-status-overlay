@@ -1,6 +1,7 @@
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
 
+import { StatusOverlayModule } from "./status-overlay/status-overlay.module";
 import { AppComponent } from "./app.component";
 
 @NgModule({
@@ -8,7 +9,8 @@ import { AppComponent } from "./app.component";
     AppComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    StatusOverlayModule
   ],
   providers: [],
   bootstrap: [AppComponent]
