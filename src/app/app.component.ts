@@ -10,8 +10,9 @@ import { Observable } from "rxjs";
 export class AppComponent {
   isLoading: boolean = false;
   isError: boolean = false;
+  mayDismissError: boolean = false;
   dataStream$: Observable<any> = null;
-  httpResponse: any = "NO DATA";
+  httpResponse: any = "NO DATA";  
 
   constructor(private http: HttpClient) {}
 

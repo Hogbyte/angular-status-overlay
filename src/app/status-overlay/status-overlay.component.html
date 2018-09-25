@@ -1,7 +1,10 @@
 <div class="appStatusOverlay" *ngIf="showOverlay">
   <div class="appStatusOverlayText">
     <ng-container *ngIf="isLoading">{{ loadingText }}</ng-container>
-    <ng-container *ngIf="isError">{{ errorText }}</ng-container>
+    <ng-container *ngIf="isError">
+      {{ errorText }}
+      <button *ngIf="dismissError" (click)="dismissOverlay()">Dismiss</button>
+    </ng-container>
   </div>
 </div>
 <ng-content></ng-content>

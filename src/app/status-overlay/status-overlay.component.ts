@@ -14,6 +14,7 @@ const DEFAULT_ERROR_TEXT: string = "An error has occurred.";
 export class StatusOverlayComponent implements OnDestroy {
   @Input() loadingText: string = DEFAULT_LOADING_TEXT;
   @Input() errorText: string = DEFAULT_ERROR_TEXT;
+  @Input() dismissError: boolean = false;
   private _isLoading: boolean = false;
   private _isError: boolean = false;
   private _dataSource: Observable<any> = null;
@@ -69,6 +70,11 @@ export class StatusOverlayComponent implements OnDestroy {
       () => { this.isError = true; }
     );
     this._dataSource = value;
+  }
+
+  dismissOverlay(): void {
+    this.isLoading = false;
+    this.isError = false;
   }
 
   ngOnDestroy(): void {

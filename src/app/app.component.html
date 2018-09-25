@@ -2,7 +2,8 @@
 <app-status-overlay loadingText="Loading..."
                     errorText="Error!"
                     [isLoading]="isLoading"
-                    [isError]="isError">
+                    [isError]="isError"
+                    [dismissError]="mayDismissError">
   <section>
     <header>Status Overlay Outside Panel</header>
     Example content line 1<br />
@@ -18,6 +19,7 @@
                       errorText="Error!"
                       [isLoading]="isLoading"
                       [isError]="isError"
+                      [dismissError]="mayDismissError"
                       style="width: 100%;">
     Example content line 1<br />
     Example content line 2<br />
@@ -29,7 +31,8 @@
 Set Status:
 <button (click)="setDefault()" [disabled]="!isLoading && !isError">Default</button>
 <button (click)="setLoading()" [disabled]="isLoading">Loading</button>
-<button (click)="setError()" [disabled]="isError">Error</button>
+<button (click)="setError()" [disabled]="isError">Error</button><br />
+<label><input type="checkbox" [(ngModel)]="mayDismissError" />May dismiss error</label>
 
 <h3>Observable Example: Settings managed by RxJs observable</h3>
 <section>
@@ -37,6 +40,7 @@ Set Status:
   <app-status-overlay loadingText="Loading data..."
                       errorText="Loading data failed."
                       [dataSource]="dataStream$"
+                      [dismissError]="true"
                       style="width: 100%;">
     <button (click)="loadByObservable()">Load Data</button><br />
     <textarea rows="10" [value]="httpResponse | json"></textarea>
