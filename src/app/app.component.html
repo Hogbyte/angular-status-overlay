@@ -1,1 +1,15 @@
-<app-status-overlay></app-status-overlay>
+<app-status-overlay loadingText="Loading..."
+                    errorText="Error!"
+                    [isLoading]="isLoading"
+                    [isError]="isError">
+  Example content line 1<br />
+  Example content line 2<br />
+  Example content line 3<br />
+  Example content line 4
+</app-status-overlay>
+<br /><br />
+
+Set Status:
+<button (click)="setDefault()" [disabled]="!isLoading && !isError">Default</button>
+<button (click)="setLoading()" [disabled]="isLoading">Loading</button>
+<button (click)="setError()" [disabled]="isError">Error</button>

@@ -6,5 +6,21 @@ import { Component } from "@angular/core";
   styleUrls: ["./app.component.css"]
 })
 export class AppComponent {
-  title = "angular-status-overlay";
+  isLoading: boolean = false;
+  isError: boolean = false;
+
+  setLoading(): void {
+    this.isLoading = true;
+    this.isError = false;
+  }
+
+  setError(): void {
+    this.isLoading = false;
+    this.isError = true;
+  }
+
+  setDefault(): void {
+    this.isLoading = false;
+    this.isError = false;
+  }
 }
