@@ -15,3 +15,14 @@ Set Status:
 <button (click)="setDefault()" [disabled]="!isLoading && !isError">Default</button>
 <button (click)="setLoading()" [disabled]="isLoading">Loading</button>
 <button (click)="setError()" [disabled]="isError">Error</button>
+
+<h3>Observable Example: Settings managed by RxJs observable</h3>
+
+<app-status-overlay loadingText="Loading data..."
+                    errorText="Loading data failed."
+                    [dataSource]="dataStream$">
+  <button (click)="loadByObservable()">Load Data</button><br />
+  <textarea class="widthFixed600"
+            rows="10"
+            [value]="httpResponse | json"></textarea>
+</app-status-overlay>
