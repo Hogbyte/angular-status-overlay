@@ -1,28 +1,45 @@
 <h3>Basic Example: Manually set overlay status</h3>
-
 <app-status-overlay loadingText="Loading..."
                     errorText="Error!"
                     [isLoading]="isLoading"
                     [isError]="isError">
-  Example content line 1<br />
-  Example content line 2<br />
-  Example content line 3<br />
-  Example content line 4
+  <section>
+    <header>Status Overlay Outside Panel</header>
+    Example content line 1<br />
+    Example content line 2<br />
+    Example content line 3<br />
+    Example content line 4  
+  </section>
 </app-status-overlay>
 <br /><br />
-
+<section>
+  <header>Status Overlay Inside Panel</header>
+  <app-status-overlay loadingText="Loading..."
+                      errorText="Error!"
+                      [isLoading]="isLoading"
+                      [isError]="isError"
+                      style="width: 100%;">
+    Example content line 1<br />
+    Example content line 2<br />
+    Example content line 3<br />
+    Example content line 4
+  </app-status-overlay>
+</section>
+<br /><br />
 Set Status:
 <button (click)="setDefault()" [disabled]="!isLoading && !isError">Default</button>
 <button (click)="setLoading()" [disabled]="isLoading">Loading</button>
 <button (click)="setError()" [disabled]="isError">Error</button>
 
 <h3>Observable Example: Settings managed by RxJs observable</h3>
-
-<app-status-overlay loadingText="Loading data..."
-                    errorText="Loading data failed."
-                    [dataSource]="dataStream$">
-  <button (click)="loadByObservable()">Load Data</button><br />
-  <textarea class="widthFixed600"
-            rows="10"
-            [value]="httpResponse | json"></textarea>
-</app-status-overlay>
+<section>
+  <header>Star Wars API - People</header>
+  <app-status-overlay loadingText="Loading data..."
+                      errorText="Loading data failed."
+                      [dataSource]="dataStream$"
+                      style="width: 100%;">
+    <button (click)="loadByObservable()">Load Data</button><br />
+    <textarea rows="10" [value]="httpResponse | json"></textarea>
+  </app-status-overlay>
+</section>
+<i>Go offline to test error scenario.</i>
